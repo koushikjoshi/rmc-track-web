@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import { Board } from "./Components/Board/Board";
+import NavigationBar from "./Components/Navigation/NavigationBar";
+import SidePanel from "./Components/SidePanel/SidePanel";
+import NewCallForm from "./Components/Form/NewCallForm";
 
 function App() {
+  const [visible, setVisible] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {visible && <NewCallForm visibility={visible} />}
+      <NavigationBar />
+      <div className="panel">
+        <SidePanel className="side-panel" />
+        <Board setVisible={setVisible} />
+      </div>
     </div>
   );
 }

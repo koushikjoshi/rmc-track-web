@@ -1,0 +1,16 @@
+.side-main {
+  width: 18vw;
+  background-color: rgb(41, 41, 41);
+  margin-right: 20px;
+  padding-top: 20px;
+}
+.side-button {
+  color: white;
+  padding-left: 20px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.side-button:hover {
+  background-color: gray;
+}

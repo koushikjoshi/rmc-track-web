@@ -1,0 +1,7 @@
+.Switch {
+  display: flex;
+}
+
+.label {
+  color: white !important;
+}

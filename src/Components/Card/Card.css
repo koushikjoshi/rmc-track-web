@@ -1,0 +1,39 @@
+.card-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: antiquewhite;
+  width: 250px;
+  height: fit-content;
+  cursor: pointer;
+  padding: 10px;
+  margin: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: 2px 2px 2px 2px #a19e9e;
+  /* border-radius: 10px; */
+}
+
+.card-main:hover {
+  box-shadow: 2px 5px 2px 2px #a19e9e;
+  background-color: lavenderblush;
+}
+
+.card-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-text {
+  padding: 5px;
+  font-size: small;
+}
+
+/* .tag-text {
+ background-color: ; 
+} */

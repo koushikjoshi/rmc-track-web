@@ -1,0 +1,17 @@
+.board-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 88vh;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
+.board-columns {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  margin-right: 20px;
+  height: fit-content;
+}
