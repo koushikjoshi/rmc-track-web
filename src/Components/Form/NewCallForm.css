@@ -10,8 +10,90 @@
   /* background-color: white; */
 }
 .form-div {
-  width: 80%;
+  width: fit-content;
   height: 80%;
   background-color: white;
-  border-radius: 10px;
+  box-shadow: 10px 8px 5px 5px #39393975;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid black;
+}
+.Leadform {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+select {
+  height: 35px;
+  border: 2px solid black;
+  /* border-radius: 5px; */
+}
+label {
+  padding-top: 10px;
+}
+.remarks {
+  height: 30px;
+  border: 2px solid black;
+  /* border-radius: 5px; */
+  margin-bottom: 20px;
+}
+.name {
+  height: 30px;
+  border: 2px solid black;
+  /* border-radius: 5px; */
+  margin-bottom: 20px;
+}
+.phone {
+  height: 30px;
+  border: 2px solid black;
+  /* border-radius: 5px; */
+  margin-bottom: 20px;
+}
+.create-ticket {
+  height: 40px;
+  background-color: aqua;
+  border: 2px solid black;
+  /* border-radius: 5px; */
+}
+.create-ticket:hover {
+  cursor: pointer;
+  background-color: aquamarine;
+}
+.close-icon {
+  /* position: absolute;
+  top: 70px;
+  right: 130px; */
+  padding-top: 30px;
+  align-self: center;
+  cursor: pointer;
+  color: brown;
+  z-index: 3;
+}
+.duration-input {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.duration-hours {
+  width: 50%;
+  border: 2px solid black;
+  border-right: 2px solid white;
+  height: 30px;
+  text-align: center;
+}
+.duration-minutes {
+  width: 50%;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-right: 2px solid white;
+  text-align: center;
+}
+.duration-seconds {
+  width: 50%;
+  border: 2px solid black;
+  text-align: center;
 }

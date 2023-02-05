@@ -5,7 +5,8 @@ import SidePanel from "../SidePanel/SidePanel";
 import "./Board.css";
 
 export const Board = (props) => {
-  var { setVisible } = props;
+  var { setVisible, setCategory } = props;
+
   // console.log(visible);
 
   return (
@@ -16,21 +17,25 @@ export const Board = (props) => {
             title="New Leads"
             background="AliceBlue"
             setVisible={setVisible}
+            setCategory={setCategory}
           ></Column>
           <Column
             title="Callbacks"
             background="Pink"
             setVisible={setVisible}
+            setCategory={setCategory}
           ></Column>
           <Column
             title="RnR"
             background="#FF7373"
             setVisible={setVisible}
+            setCategory={setCategory}
           ></Column>
           <Column
             title="Interested"
             background="#DAF7A6"
             setVisible={setVisible}
+            setCategory={setCategory}
           ></Column>
         </div>
       </div>

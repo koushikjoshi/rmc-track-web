@@ -1,7 +1,30 @@
 .Switch {
   display: flex;
+  flex-direction: column;
+  margin: 5px;
+  padding: 5px;
 }
 
 .label {
   color: white !important;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+}
+.meeting-input {
+  height: 30px;
+  border-radius: 5px;
+  border: 3px solid salmon;
+}
+.breakstart {
+  margin-top: 8px;
+  height: 40px;
+  background-color: aquamarine;
+  border-radius: 5px;
+  border: 2px solid white;
+}
+.breakstart:hover {
+  background-color: aqua;
 }

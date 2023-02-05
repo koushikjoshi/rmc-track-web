@@ -6,6 +6,7 @@
   /* border-radius: 5px; */
   margin-left: 20px;
   box-shadow: 5px 8px 5px 5px #a19e9e;
+  border: 2px solid black;
   /* border-radius: 5px; */
 }
 .column-header {
@@ -15,6 +16,7 @@
   justify-content: center;
   height: 80px;
   font-weight: 500;
+  border-bottom: 2px solid black;
   /* border-top-left-radius: 5px;
   border-top-right-radius: 5px; */
 
@@ -33,7 +35,7 @@
   border-bottom-right-radius: 5px; */
 }
 .column-search-bar {
-  border: 1px solid black;
+  border: 2px solid black;
   /* border-radius: 8px; */
   display: flex;
   flex-direction: row;
@@ -45,9 +47,9 @@
   margin-bottom: 8px;
   padding-top: 5px;
   padding-bottom: 5px;
-  margin-left: 2px;
+  margin-left: 1.5px;
 }
-input {
+.search-field {
   height: 25px;
   width: 240px;
   align-self: center;

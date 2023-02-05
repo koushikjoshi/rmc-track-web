@@ -7,9 +7,7 @@ import "../ReactSwitches/ReactSwitches.css";
 
 export const Onmail = () => {
   const currentDate = moment().format("DD MMM YYYY");
-  const [statusFields, setStatusFields] = useState({
-    Break: 0,
-    Meeting: 0,
+  const [statusField, setStatusField] = useState({
     OnMail: 0,
     Idle: 1,
   });
@@ -23,8 +21,8 @@ export const Onmail = () => {
       (snapshot) => {
         const statuses = snapshot.val();
         if (statuses) {
-          setStatusFields(statuses);
-          console.log(statusFields);
+          setStatusField(statuses);
+          console.log(statusField);
         } else {
           console.log("No status found for today");
         }
@@ -53,7 +51,7 @@ export const Onmail = () => {
       <div className="switch-container">
         <label>
           <Switch
-            checked={statusFields.OnMail === "1"}
+            checked={statusField.OnMail === "1"}
             onChange={(checked) => handleChange("OnMail", checked)}
           />
         </label>

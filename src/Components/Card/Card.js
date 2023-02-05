@@ -11,51 +11,39 @@ import {
   FaRegCalendarAlt,
 } from "react-icons/fa";
 
-export const Card = ({ title, setVisible }) => {
+export const Card = ({ title, setVisible, setCategory }) => {
   const [calls, setCalls] = useState({});
 
   useEffect(() => {
     const reference = ref(db, "users/7eTaM8jp5rM7gPwTb3D5P1aRzwi1/Calls");
     onValue(reference, (snapshot) => {
       var data = [];
-      // console.log(snapshot);
+      // );
 
       if (title == "New Leads") {
         snapshot.forEach((childSnapshot) => {
-          console.log(childSnapshot);
           if (!childSnapshot.child("Category").val()) {
-            console.log("yes");
-            console.log(childSnapshot.val());
             data.push(childSnapshot.val());
           }
         });
         setCalls(data);
       } else if (title == "Callbacks") {
         snapshot.forEach((childSnapshot) => {
-          console.log(childSnapshot);
           if (childSnapshot.child("Category").val() === "Callback") {
-            console.log("yes");
-            console.log(childSnapshot.val());
             data.push(childSnapshot.val());
           }
         });
         setCalls(data);
       } else if (title == "RnR") {
         snapshot.forEach((childSnapshot) => {
-          console.log(childSnapshot);
           if (childSnapshot.child("Category").val() === "RnR") {
-            console.log("yes");
-            console.log(childSnapshot.val());
             data.push(childSnapshot.val());
           }
         });
         setCalls(data);
       } else if (title == "Interested") {
         snapshot.forEach((childSnapshot) => {
-          console.log(childSnapshot);
           if (childSnapshot.child("Category").val() === "Interested") {
-            console.log("yes");
-            console.log(childSnapshot.val());
             data.push(childSnapshot.val());
           }
         });
@@ -65,7 +53,11 @@ export const Card = ({ title, setVisible }) => {
   }, []);
 
   const openSidePanel = () => {
-    setVisible(true);
+    // setVisible(true);
+    setCategory(title);
+    if (title === "New Leads") {
+      setVisible(true);
+    }
   };
   return (
     <>

@@ -14,3 +14,14 @@
 .side-button:hover {
   background-color: gray;
 }
+.Activity-Buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.side-main.side-main--active {
+  color: grey;
+}

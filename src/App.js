@@ -7,13 +7,24 @@ import NewCallForm from "./Components/Form/NewCallForm";
 
 function App() {
   const [visible, setVisible] = useState(false);
+  const [category, setCategory] = useState("");
+  const [page, setPage] = useState("Your Leads");
   return (
     <div className="App">
-      {visible && <NewCallForm visibility={visible} />}
+      {visible && (
+        <NewCallForm
+          visibility={visible}
+          category={category}
+          setVisibility={setVisible}
+        />
+      )}
       <NavigationBar />
       <div className="panel">
         <SidePanel className="side-panel" />
-        <Board setVisible={setVisible} />
+        {
+          
+        }
+        <Board setVisible={setVisible} setCategory={setCategory} />
       </div>
     </div>
   );

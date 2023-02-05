@@ -4,7 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import "./Column.css";
 
 export const Column = (props) => {
-  const { title, background, setVisible } = props;
+  const { title, background, setVisible, setCategory } = props;
   return (
     <div className="column-main">
       <div className="column-header" style={{ backgroundColor: background }}>
@@ -12,10 +12,13 @@ export const Column = (props) => {
       </div>
       <div className="column-search-bar">
         <FaSearch color="black" style={{ zIndex: "1" }} />
-        <input placeholder="Search using phone number"></input>
+        <input
+          placeholder="Search using phone number"
+          className="search-field"
+        ></input>
       </div>
       <div className="cards-holder">
-        <Card title={title} setVisible={setVisible} />
+        <Card title={title} setVisible={setVisible} setCategory={setCategory} />
       </div>
     </div>
   );
