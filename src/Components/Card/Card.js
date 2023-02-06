@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { ref, onValue, child } from "firebase/database";
 import { db } from "../../firebase";
-import NewCallForm from "../Form/NewCallForm";
 import "./Card.css";
 import {
   FaUserAlt,
@@ -12,10 +12,11 @@ import {
 } from "react-icons/fa";
 
 export const Card = ({ title, setVisible, setCategory }) => {
+  const { Name, EmpID, userId } = useParams();
   const [calls, setCalls] = useState({});
 
   useEffect(() => {
-    const reference = ref(db, "users/7eTaM8jp5rM7gPwTb3D5P1aRzwi1/Calls");
+    const reference = ref(db, `users/${userId}/Calls`);
     onValue(reference, (snapshot) => {
       var data = [];
       // );

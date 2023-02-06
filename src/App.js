@@ -1,32 +1,18 @@
-import { useState } from "react";
 import "./App.css";
-import { Board } from "./Components/Board/Board";
-import NavigationBar from "./Components/Navigation/NavigationBar";
-import SidePanel from "./Components/SidePanel/SidePanel";
-import NewCallForm from "./Components/Form/NewCallForm";
+import Hero from "./Components/Hero";
+import Login from "./Login";
+import { Routes, Route } from "react-router-dom";
+import { TicketPage } from "./Components/Tickets/TicketPage";
 
 function App() {
-  const [visible, setVisible] = useState(false);
-  const [category, setCategory] = useState("");
-  const [page, setPage] = useState("Your Leads");
   return (
-    <div className="App">
-      {visible && (
-        <NewCallForm
-          visibility={visible}
-          category={category}
-          setVisibility={setVisible}
-        />
-      )}
-      <NavigationBar />
-      <div className="panel">
-        <SidePanel className="side-panel" />
-        {
-          
-        }
-        <Board setVisible={setVisible} setCategory={setCategory} />
-      </div>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/Dashboard/:Name/:userId" element={<Hero />} />
+        <Route path="/TicketPage" element={<TicketPage />} />
+      </Routes>
+    </>
   );
 }
 

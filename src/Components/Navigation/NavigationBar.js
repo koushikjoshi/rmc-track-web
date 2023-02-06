@@ -1,5 +1,6 @@
 import React from "react";
 import "./NavigationBar.css";
+import { useParams } from "react-router-dom";
 
 import { FaDotCircle } from "react-icons/fa";
 import { onValue, ref } from "firebase/database";
@@ -12,11 +13,11 @@ const NavigationBar = () => {
   const [activity, setActivity] = useState();
   const [login, setLogin] = useState("0000");
   const [status, setStatus] = useState();
-
+  const { Name, EmpID, userId } = useParams();
   useEffect(() => {
     new Promise((resolve, reject) => {
       onValue(
-        ref(db, `users/7eTaM8jp5rM7gPwTb3D5P1aRzwi1/Activity/${currentDate}`),
+        ref(db, `users/${userId}/Activity/${currentDate}`),
         (snapshot) => {
           const data = snapshot.val();
           setActivity(data);
@@ -41,10 +42,7 @@ const NavigationBar = () => {
 
   useEffect(() => {
     onValue(
-      ref(
-        db,
-        `users/7eTaM8jp5rM7gPwTb3D5P1aRzwi1/Activity/${currentDate}/Status`
-      ),
+      ref(db, `users/${userId}/Activity/${currentDate}/Status`),
       (snapshot) => {
         const data = snapshot.val();
         if (!data) {

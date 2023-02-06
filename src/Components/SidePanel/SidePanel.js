@@ -4,8 +4,8 @@ import { FaPhoneAlt, FaTicketAlt, FaFire, FaChartBar } from "react-icons/fa";
 import { Onmail } from "../ReactSwitches/Onmail";
 import { Meeting } from "../ReactSwitches/Meeting";
 import { Break } from "../ReactSwitches/Break";
-
-const SidePanel = () => {
+import { Link } from "react-router-dom";
+const SidePanel = ({ setPage, page }) => {
   const [active, setActive] = useState(true);
   return (
     <div className={`side-main ${active ? "side-main--active" : ""}`}>
@@ -19,16 +19,18 @@ const SidePanel = () => {
         />
         Your Leads
       </p>
-      <p className="side-button">
-        <FaTicketAlt
-          style={{
-            paddingRight: "10px",
-            paddingTop: "5px",
-            alignSelf: "center",
-          }}
-        />
-        Tickets
-      </p>
+      <Link to="/TicketPage">
+        <p className="side-button">
+          <FaTicketAlt
+            style={{
+              paddingRight: "10px",
+              paddingTop: "5px",
+              alignSelf: "center",
+            }}
+          />
+          Tickets
+        </p>
+      </Link>
       <p className="side-button">
         <FaFire
           style={{

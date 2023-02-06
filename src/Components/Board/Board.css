@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   height: 88vh;
-  width: 100%;
+  width: 85vw;
   overflow-x: scroll;
   overflow-y: scroll;
 }
