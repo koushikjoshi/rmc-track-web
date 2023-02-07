@@ -1,24 +1,34 @@
 import React, { useState } from "react";
 import "./SidePanel.css";
-import { FaPhoneAlt, FaTicketAlt, FaFire, FaChartBar } from "react-icons/fa";
+import {
+  FaPhoneAlt,
+  FaTicketAlt,
+  FaFire,
+  FaChartBar,
+  FaSignOutAlt,
+} from "react-icons/fa";
 import { Onmail } from "../ReactSwitches/Onmail";
 import { Meeting } from "../ReactSwitches/Meeting";
 import { Break } from "../ReactSwitches/Break";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 const SidePanel = ({ setPage, page }) => {
   const [active, setActive] = useState(true);
+  const { Name, userId } = useParams();
   return (
     <div className={`side-main ${active ? "side-main--active" : ""}`}>
-      <p className="side-button">
-        <FaPhoneAlt
-          style={{
-            paddingRight: "10px",
-            paddingTop: "5px",
-            alignSelf: "center",
-          }}
-        />
-        Your Leads
-      </p>
+      <Link to="/Dashboard/:Name/:userId">
+        <p className="side-button">
+          <FaPhoneAlt
+            style={{
+              paddingRight: "10px",
+              paddingTop: "5px",
+              alignSelf: "center",
+            }}
+          />
+          Your Leads
+        </p>
+      </Link>
       <Link to="/TicketPage">
         <p className="side-button">
           <FaTicketAlt
@@ -61,6 +71,15 @@ const SidePanel = ({ setPage, page }) => {
         <div>
           <Break />
         </div>
+        <p className="side-button">
+          <FaSignOutAlt
+            style={{
+              paddingRight: "10px",
+              alignSelf: "center",
+            }}
+          />
+          Logout
+        </p>
       </div>
     </div>
   );

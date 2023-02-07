@@ -34,13 +34,43 @@ const Login = () => {
         console.log("correct password and username");
         const { Name, EmpID, userId } = snapshot;
         set(ref(db, `users/${userId}/Login`), "Yes");
-        set(
+
+        onValue(
           ref(db, `users/${userId}/Activity/${currentDate}/Login`),
-          moment().format("HHmm")
+          (snapshot) => {
+            if (!snapshot.exists()) {
+              set(
+                ref(db, `users/${userId}/Activity/${currentDate}/Login`),
+                moment().format("HHmm")
+              ).then(
+                set(ref(db, `users/${userId}/Activity/${currentDate}/Status`), {
+                  Idle: "1",
+                  OnMail: "0",
+                  Meeting: "0",
+                  Break: "0",
+                })
+              );
+              const dashboardurl = `Dashboard/${Name}/${userId}`;
+              navigate(dashboardurl, { state: { Name, EmpID, userId } });
+
+              return;
+            } else {
+              set(ref(db, `users/${userId}/Activity/${currentDate}/Status`), {
+                Idle: "1",
+                OnMail: "0",
+                Meeting: "0",
+                Break: "0",
+              });
+              const dashboardurl = `Dashboard/${Name}/${userId}`;
+              navigate(dashboardurl, { state: { Name, EmpID, userId } });
+              return;
+            }
+          },
+
+          {
+            onlyOnce: true,
+          }
         );
-        const dashboardurl = `Dashboard/${Name}/${userId}`;
-        navigate(dashboardurl, { state: { Name, EmpID, userId } });
-        return;
       } else {
         console.log("Wrong password or username");
       }
