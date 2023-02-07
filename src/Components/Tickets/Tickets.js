@@ -1,6 +1,9 @@
 import React from "react";
+import { useEffect, useState } from "react";
 
 export const Tickets = () => {
+  useEffect(() => {}, []);
+
   return (
     <div className="Ticket-Container">
       <div className="category">
@@ -23,7 +26,7 @@ export const Tickets = () => {
           </div>
         </div>
         <div className="button">
-          <button className="Ticketbutton">View Ticket </button>
+          <button className="Ticketbutton">View Ticket</button>
         </div>
       </div>
     </div>

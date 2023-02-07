@@ -21,7 +21,13 @@ const Hero = () => {
       )}
       <NavigationBar />
       <div className="panel">
-        <SidePanel className="side-panel" setPage={setPage} page={page} />
+        <SidePanel
+          className="side-panel"
+          setPage={setPage}
+          page={page}
+          Name
+          userId
+        />
 
         <Board setVisible={setVisible} setCategory={setCategory} />
       </div>
