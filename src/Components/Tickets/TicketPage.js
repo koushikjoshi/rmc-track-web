@@ -2,17 +2,17 @@ import React from "react";
 import { Tickets } from "./Tickets";
 import NavigationBar from "../Navigation/NavigationBar";
 import SidePanel from "../SidePanel/SidePanel";
-import "./Ticket.css";
-
-export const TicketPage = () => {
+import "./TicketPage.css";
+import { ViewTicket } from "./ViewTicket";
+export const TicketPage = ({ userId }) => {
   return (
     <>
-      <div className="App">
-        <NavigationBar />
-
-        <div className="panel">
-          <SidePanel className="side-panel" />
+      <div className="Panel">
+        <div className="tickets-column">
           <Tickets />
+        </div>
+        <div className="view-tickets">
+          <ViewTicket />
         </div>
       </div>
     </>

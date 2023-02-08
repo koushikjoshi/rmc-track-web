@@ -3,7 +3,7 @@ import Hero from "./Components/Hero";
 import Login from "./Login";
 import { Routes, Route } from "react-router-dom";
 import { TicketPage } from "./Components/Tickets/TicketPage";
-
+import { ViewTicket } from "./Components/Tickets/ViewTicket";
 function App() {
   return (
     <>

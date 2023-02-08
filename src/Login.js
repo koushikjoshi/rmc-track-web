@@ -86,7 +86,7 @@ const Login = () => {
         onChange={(e) => setUsername(e.target.value)}
       />
       <input
-        type="te"
+        type="text"
         placeholder="Password"
         value={password}
         onChange={(e) => {

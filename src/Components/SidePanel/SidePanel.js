@@ -10,19 +10,20 @@ import {
 import { Onmail } from "../ReactSwitches/Onmail";
 import { Meeting } from "../ReactSwitches/Meeting";
 import { Break } from "../ReactSwitches/Break";
-import { Link, useRouteError } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
 import { ref, set } from "firebase/database";
 import moment from "moment";
-import { useNavigate } from "react-router-dom";
 
-const SidePanel = ({ userId, dashboardurl }) => {
+const SidePanel = ({ setPage, page }) => {
   const [active, setActive] = useState(true);
+  const { Name, userId } = useParams();
 
   const currentDate = moment().format("DD MMM YYYY");
   const currentTime = moment().format("HHmm");
-  console.log(dashboardurl);
+  // console.log(dashboardurl);
 
   const navigate = useNavigate();
   const logout = () => {
@@ -46,30 +47,46 @@ const SidePanel = ({ userId, dashboardurl }) => {
 
   return (
     <div className={`side-main ${active ? "side-main--active" : ""}`}>
-      <Link to={dashboardurl}>
-        <p className="side-button">
-          <FaPhoneAlt
-            style={{
-              paddingRight: "10px",
-              paddingTop: "5px",
-              alignSelf: "center",
-            }}
-          />
-          Your Leads
-        </p>
-      </Link>
-      <Link to="/TicketPage">
-        <p className="side-button">
-          <FaTicketAlt
-            style={{
-              paddingRight: "10px",
-              paddingTop: "5px",
-              alignSelf: "center",
-            }}
-          />
-          Tickets
-        </p>
-      </Link>
+      {/* <Link to="/Dashboard/:Name/:userId"> */}
+      <p
+        className="side-button"
+        onClick={() => {
+          setPage("Your Leads");
+        }}
+        style={{
+          backgroundColor: page === "Your Leads" ? "gray" : "",
+        }}
+      >
+        <FaPhoneAlt
+          style={{
+            paddingRight: "10px",
+            paddingTop: "5px",
+            alignSelf: "center",
+          }}
+        />
+        Your Leads
+      </p>
+      {/* </Link>
+      <Link to="/TicketPage"> */}
+      <p
+        className="side-button"
+        onClick={() => {
+          setPage("Tickets");
+        }}
+        style={{
+          backgroundColor: page === "Tickets" ? "gray" : "",
+        }}
+      >
+        <FaTicketAlt
+          style={{
+            paddingRight: "10px",
+            paddingTop: "5px",
+            alignSelf: "center",
+          }}
+        />
+        Tickets
+      </p>
+      {/* </Link> */}
       <p className="side-button">
         <FaFire
           style={{
@@ -100,17 +117,16 @@ const SidePanel = ({ userId, dashboardurl }) => {
         <div>
           <Break />
         </div>
+        <p className="side-button" onClick={logout}>
+          <FaSignOutAlt
+            style={{
+              paddingRight: "10px",
+              alignSelf: "center",
+            }}
+          />
+          Logout
+        </p>
       </div>
-      <p className="side-button" onClick={logout}>
-        <FaSignOutAlt
-          style={{
-            paddingRight: "10px",
-            paddingTop: "0px",
-            alignSelf: "center",
-          }}
-        />
-        Logout
-      </p>
     </div>
   );
 };

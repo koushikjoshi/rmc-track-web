@@ -1,0 +1,12 @@
+.Panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 88vh;
+  width: 100vw;
+}
+.tickets-column {
+  width: fit-content;
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
